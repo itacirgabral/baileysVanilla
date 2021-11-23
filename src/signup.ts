@@ -1,10 +1,11 @@
 import baileys from '@adiwajshing/baileys-md'
-import { useSingleFileAuthState  } from './useSingleFileAuthState'
+import { saveSignup  } from './saveSignup'
+import { saveConnect  } from './saveConnect'
 
-const number = !!process.argv[2] ? String(Math.random()).slice(2) : process.argv[2] 
+const number = !process.argv[2] ? String(Math.random()).slice(2) : process.argv[2] 
 console.log(`number=${number}`)
 
-const { state, saveState } = useSingleFileAuthState(`./auth_info_multi.${number}.json`)
+const { state, saveState } = saveSignup(`./auth_info_multi.${number}.json`)
 
 const signup = baileys({
   printQRInTerminal: true,
@@ -20,7 +21,7 @@ signup.ev.on('connection.update', (update) => {
   const { connection, lastDisconnect } = update
   
   if(connection === 'close') {
-    const { state, saveState } = useSingleFileAuthState(`./auth_info_multi.${number}.json`)
+    const { state, saveState } = saveConnect(`./auth_info_multi.${number}.json`)
     const connect = baileys({
       printQRInTerminal: true,
       auth: state
@@ -35,4 +36,3 @@ signup.ev.on('connection.update', (update) => {
     connect.ev.on('contacts.update', () => console.log('contacts.update'))
   }
 })
-

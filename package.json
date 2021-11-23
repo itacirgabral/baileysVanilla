@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "signup": "npx ts-node ./src/signup.ts",
+    "start": "npx ts-node ./src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
