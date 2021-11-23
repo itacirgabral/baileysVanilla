@@ -1,5 +1,5 @@
-import baileys, { initInMemoryKeyStore, initAuthCreds, BufferJSON, AuthenticationState  } from '@adiwajshing/baileys-md'
-const { writeFileSync} = require('fs')
+import { initInMemoryKeyStore, initAuthCreds, BufferJSON, AuthenticationState  } from '@adiwajshing/baileys-md'
+import { writeFileSync} from 'fs'
 
 export const saveSignup = (filename: string) => {
 	let state: AuthenticationState

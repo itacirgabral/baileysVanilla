@@ -1,4 +1,4 @@
-import baileys, { initInMemoryKeyStore, initAuthCreds, BufferJSON, AuthenticationState  } from '@adiwajshing/baileys-md'
+import { initInMemoryKeyStore, BufferJSON, AuthenticationState  } from '@adiwajshing/baileys-md'
 
 export const saveConnect = (filename: string) => {
 	// require fs here so that in case "fs" is not available -- the app does not crash
