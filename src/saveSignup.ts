@@ -5,15 +5,15 @@ export const saveSignup = (filename: string) => {
 	let state: AuthenticationState
 
 	const saveState = () => {
-    console.log('saving auth state saveSignup')
-    const toWrite = JSON.stringify(state, BufferJSON.replacer, 2)
+		console.log('saving auth state saveSignup')
+		const toWrite = JSON.stringify(state, BufferJSON.replacer, 2)
 
-    writeFileSync(filename, toWrite)
+		writeFileSync(filename, toWrite)
 	}
 	
-  const creds = initAuthCreds()
-  const keys = initInMemoryKeyStore({ }, saveState)
-  state = { creds: creds, keys: keys }
+	const creds = initAuthCreds()
+	const keys = initInMemoryKeyStore({ }, saveState)
+	state = { creds: creds, keys: keys }
 
 	return { state, saveState }
 }
